@@ -8,7 +8,8 @@ And we Also have an Profile page where we display all our orders purchased by th
 Please follow it step wise to get better undestanding of the code From step 1 to last step
 I am mentioned every functionality through comments that what the code is doing
 #
-TO run the file
+TO run the file run commands
 # npm install
 and then
+#
 #npm start
