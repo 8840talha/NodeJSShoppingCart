@@ -1,0 +1,42 @@
+{{!--Step 6-> A form for signup using bootstrap ...
+Now lets create the user schema for our user so we create a new file user.js in models folder 
+and create a new mongoose schema for our user in user.js file
+--}}
+
+{{!-- Step 12-> here we use if statement through handle bars and check whether it haserrors or not
+   and if it has errors we loop through eachmessages and embed it in a div with alert danger in a p tag
+  if we get errors.
+  Now we need to validate our signup form so that no false entries are allowed so we use express-validator
+  and we will validate the form inside passport as we are using passport for signin and signup so lets go to the passport.js file
+  
+  --}}
+<div class="row">
+<div class="col-md-4 col-md-offset-4">
+    <h1>Sign Up</h1>
+   {{#if hasErrors}}
+   <div class="alert alert-danger">
+       {{# each messages}}
+          <p>{{this}}</p>
+       {{/each}}
+   </div>
+   {{/if}}
+    <form action="/user/signup" method="post">
+        <div class="form-group">
+            <label for="email">E-Mail</label>
+            <input type="text" id="email" name="email" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" class="form-control" required>
+        </div>
+        {{!--Step 9 ->adding the csrf token in a hidden input field and protecting our session
+          Now lets setup passport by requiring oit in our app.js file and lets configure passport in a new file named
+          passport.js inside config folder.lets go to passport.js file  
+          
+          --}}
+        <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+        <button type="submit">Sign Up</button>
+    </form>
+    
+</div>
+</div>
